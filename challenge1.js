@@ -105,6 +105,70 @@ removeButton.addEventListener("click", function () {
 
 })();
 
+// chllenge 10 
+let count = 0;
+document.getElementById("counterButton").addEventListener("click", function () {
+  count++;
+  document.getElementById("clickCount").textContent = `Clicks: ${count}`;
+});
+//11
+const hoverDiv = document.getElementById("hoverDiv");
+hoverDiv.addEventListener("mouseover", function () {
+  hoverDiv.classList.add("hovered");
+});
+hoverDiv.addEventListener("mouseout", function () {
+  hoverDiv.classList.remove("hovered");
+});
+//12
+const dropdown = document.getElementById("dropdown");
+const options = ["Option 1", "Option 2", "Option 3"];
+options.forEach((option) => {
+  const opt = document.createElement("option");
+  opt.textContent = option;
+  dropdown.appendChild(opt);
+});
+//13
+const rows = document.querySelectorAll("#table tr");
+rows.forEach((row) => {
+  row.addEventListener("click", function () {
+    rows.forEach((r) => (r.style.backgroundColor = ""));
+    row.style.backgroundColor = "yellow";
+  });
+});
+//14
+const nestedListItems = document.querySelectorAll("#nestedList li");
+nestedListItems.forEach((item) => console.log(item.textContent));
+
+//15
+
+
+
+document.getElementById("scrollButton").addEventListener("click", function () {
+  document
+    .getElementById("scrollTarget")
+    .scrollIntoView({ behavior: "smooth" });
+});
+//16
+const filterInput = document.getElementById("filterInput");
+const filterList = document.getElementById("filterList");
+filterInput.addEventListener("input", function () {
+  const filter = filterInput.value.toLowerCase();
+  Array.from(filterList.children).forEach((item) => {
+    item.style.display = item.textContent.toLowerCase().includes(filter)
+      ? ""
+      : "none";
+  });
+});
+
+//17
+const dynamicTable = document.getElementById("dynamicTable");
+for (let i = 1; i <= 3; i++) {
+  const row = dynamicTable.insertRow();
+  for (let j = 1; j <= 3; j++) {
+    const cell = row.insertCell();
+    cell.textContent = `Row ${i} Col ${j}`;
+  }
+}
 
 
 
